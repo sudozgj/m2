@@ -10,10 +10,27 @@ Target Server Type    : MYSQL
 Target Server Version : 50535
 File Encoding         : 65001
 
-Date: 2017-02-16 18:01:51
+Date: 2017-02-17 18:18:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `fileio`
+-- ----------------------------
+DROP TABLE IF EXISTS `fileio`;
+CREATE TABLE `fileio` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `time` bigint(20) NOT NULL,
+  `dir` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of fileio
+-- ----------------------------
+
 -- ----------------------------
 -- Table structure for `log`
 -- ----------------------------
@@ -24,7 +41,7 @@ CREATE TABLE `log` (
   `operation` varchar(32) NOT NULL,
   `time` bigint(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=261 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=336 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of log
@@ -60,6 +77,81 @@ INSERT INTO `log` VALUES ('257', 'aa', 'login', '1487224877');
 INSERT INTO `log` VALUES ('258', 'aa', 'getLogList', '1487224885');
 INSERT INTO `log` VALUES ('259', 'aa', 'login', '1487226130');
 INSERT INTO `log` VALUES ('260', 'aa', 'getLogList', '1487226134');
+INSERT INTO `log` VALUES ('261', 'admin', 'login', '1487311320');
+INSERT INTO `log` VALUES ('262', 'admin', 'uploadFile', '1487311325');
+INSERT INTO `log` VALUES ('263', 'admin', 'uploadFile', '1487311330');
+INSERT INTO `log` VALUES ('264', 'admin', 'login', '1487312503');
+INSERT INTO `log` VALUES ('265', 'admin', 'uploadFile', '1487312506');
+INSERT INTO `log` VALUES ('266', 'admin', 'login', '1487312638');
+INSERT INTO `log` VALUES ('267', 'admin', 'uploadFile', '1487312642');
+INSERT INTO `log` VALUES ('268', 'admin', 'login', '1487312700');
+INSERT INTO `log` VALUES ('269', 'admin', 'login', '1487312735');
+INSERT INTO `log` VALUES ('270', 'admin', 'login', '1487312738');
+INSERT INTO `log` VALUES ('271', 'admin', 'uploadFile', '1487312761');
+INSERT INTO `log` VALUES ('272', 'admin', 'login', '1487312904');
+INSERT INTO `log` VALUES ('273', 'admin', 'uploadFile', '1487312907');
+INSERT INTO `log` VALUES ('274', 'admin', 'login', '1487313065');
+INSERT INTO `log` VALUES ('275', 'admin', 'uploadFile', '1487313071');
+INSERT INTO `log` VALUES ('276', 'admin', 'login', '1487313983');
+INSERT INTO `log` VALUES ('277', 'admin', 'uploadFile', '1487313990');
+INSERT INTO `log` VALUES ('278', 'admin', 'login', '1487314460');
+INSERT INTO `log` VALUES ('279', 'admin', 'uploadFile', '1487314466');
+INSERT INTO `log` VALUES ('280', 'admin', 'login', '1487314552');
+INSERT INTO `log` VALUES ('281', 'admin', 'uploadFile', '1487314561');
+INSERT INTO `log` VALUES ('282', 'admin', 'login', '1487315183');
+INSERT INTO `log` VALUES ('283', 'admin', 'uploadFile', '1487315215');
+INSERT INTO `log` VALUES ('284', 'admin', 'login', '1487315429');
+INSERT INTO `log` VALUES ('285', 'admin', 'uploadFile', '1487315440');
+INSERT INTO `log` VALUES ('286', 'admin', 'uploadFile', '1487315623');
+INSERT INTO `log` VALUES ('287', 'admin', 'login', '1487315909');
+INSERT INTO `log` VALUES ('288', 'admin', 'uploadFile2', '1487315926');
+INSERT INTO `log` VALUES ('289', 'admin', 'login', '1487316186');
+INSERT INTO `log` VALUES ('290', 'admin', 'uploadFile3', '1487316200');
+INSERT INTO `log` VALUES ('291', 'admin', 'login', '1487316715');
+INSERT INTO `log` VALUES ('292', 'admin', 'uploadFile2', '1487316801');
+INSERT INTO `log` VALUES ('293', 'admin', 'uploadFile', '1487316822');
+INSERT INTO `log` VALUES ('294', 'admin', 'login', '1487317082');
+INSERT INTO `log` VALUES ('295', 'admin', 'uploadFile2', '1487317086');
+INSERT INTO `log` VALUES ('296', 'admin', 'login', '1487317508');
+INSERT INTO `log` VALUES ('297', 'admin', 'login', '1487317541');
+INSERT INTO `log` VALUES ('298', 'admin', 'uploadFile3', '1487317553');
+INSERT INTO `log` VALUES ('299', 'admin', 'uploadFile3', '1487317574');
+INSERT INTO `log` VALUES ('300', 'admin', 'uploadFile', '1487317584');
+INSERT INTO `log` VALUES ('301', 'admin', 'uploadFile2', '1487317620');
+INSERT INTO `log` VALUES ('302', 'admin', 'login', '1487323633');
+INSERT INTO `log` VALUES ('303', 'admin', 'getSource', '1487323637');
+INSERT INTO `log` VALUES ('304', 'admin', 'login', '1487323791');
+INSERT INTO `log` VALUES ('305', 'admin', 'getSource', '1487323795');
+INSERT INTO `log` VALUES ('306', 'admin', 'login', '1487323833');
+INSERT INTO `log` VALUES ('307', 'admin', 'login', '1487323841');
+INSERT INTO `log` VALUES ('308', 'admin', 'getSource', '1487323843');
+INSERT INTO `log` VALUES ('309', 'admin', 'login', '1487323896');
+INSERT INTO `log` VALUES ('310', 'admin', 'getSource', '1487323899');
+INSERT INTO `log` VALUES ('311', 'admin', 'login', '1487324235');
+INSERT INTO `log` VALUES ('312', 'admin', 'getSource', '1487324238');
+INSERT INTO `log` VALUES ('313', 'admin', 'getSource', '1487324244');
+INSERT INTO `log` VALUES ('314', 'admin', 'getSource', '1487324294');
+INSERT INTO `log` VALUES ('315', 'admin', 'login', '1487324305');
+INSERT INTO `log` VALUES ('316', 'admin', 'getSource', '1487324307');
+INSERT INTO `log` VALUES ('317', 'admin', 'login', '1487324348');
+INSERT INTO `log` VALUES ('318', 'admin', 'getSource', '1487324350');
+INSERT INTO `log` VALUES ('319', 'admin', 'login', '1487324404');
+INSERT INTO `log` VALUES ('320', 'admin', 'getSource', '1487324406');
+INSERT INTO `log` VALUES ('321', 'admin', 'login', '1487324678');
+INSERT INTO `log` VALUES ('322', 'admin', 'login', '1487324700');
+INSERT INTO `log` VALUES ('323', 'admin', 'getSource', '1487324703');
+INSERT INTO `log` VALUES ('324', 'admin', 'login', '1487324710');
+INSERT INTO `log` VALUES ('325', 'admin', 'getSource', '1487324716');
+INSERT INTO `log` VALUES ('326', 'admin', 'login', '1487325137');
+INSERT INTO `log` VALUES ('327', 'admin', 'getSource', '1487325141');
+INSERT INTO `log` VALUES ('328', 'admin', 'login', '1487325211');
+INSERT INTO `log` VALUES ('329', 'admin', 'getSource', '1487325212');
+INSERT INTO `log` VALUES ('330', 'admin', 'login', '1487325979');
+INSERT INTO `log` VALUES ('331', 'admin', 'login', '1487325984');
+INSERT INTO `log` VALUES ('332', 'admin', 'getSource', '1487325986');
+INSERT INTO `log` VALUES ('333', 'admin', 'uploadFile', '1487326014');
+INSERT INTO `log` VALUES ('334', 'admin', 'login', '1487326082');
+INSERT INTO `log` VALUES ('335', 'admin', 'uploadFile', '1487326088');
 
 -- ----------------------------
 -- Table structure for `user`

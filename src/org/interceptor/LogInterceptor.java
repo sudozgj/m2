@@ -61,7 +61,7 @@ public class LogInterceptor implements HandlerInterceptor {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("msg", "无权限访问,请先登录");
 				map.put("code", "0");
-				map.put("data", null);
+				map.put("data", "http://localhost:8080/m2/login?username=admin&password=123");
 
 				ObjectMapper mapper = new ObjectMapper();
 				String str = mapper.writeValueAsString(map);

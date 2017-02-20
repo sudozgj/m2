@@ -25,6 +25,7 @@
 	<mapping resource="org/model/UserDetail.hbm.xml" />
 	<mapping resource="org/view/VLog.hbm.xml" />
 	<mapping resource="org/view/VUser.hbm.xml" />
+	<mapping resource="org/model/Fileio.hbm.xml" />
 
 </session-factory>
 
