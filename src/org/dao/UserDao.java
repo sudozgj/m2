@@ -3,22 +3,61 @@ package org.dao;
 import java.util.List;
 
 import org.model.User;
+import org.model.UserDetail;
+import org.view.VUserId;
 
 public interface UserDao {
 	/**
-	 * 验证登录
+	 * 1检验用户名是否重复,true 可用,flase 已用
+	 * @param username
+	 * @return
+	 */
+	public User getUser(String username);
+	
+	/**
+	 * 2验证登录
 	 * @param u
 	 * @return
 	 */
-	public User login(User u);
+	public User getUser(String username,String password);
+	
 	/**
-	 * 添加用户
+	 * 3添加用户（注册）
 	 * @param u
 	 * @return
 	 */
 	public long addUser(User u);
+	
 	/**
-	 * 获取用户列表
+	 * 4添加用户详细信息
+	 * @param ud
+	 * @return
+	 */
+	public long addUserDetail(UserDetail ud);
+	
+	/**
+	 * 5删除用户，仅限超级管理员操作
+	 * @param id
+	 * @return
+	 */
+	public boolean deleteUser(long id);
+	
+	/**
+	 * 6修改用户密码，
+	 * @param u	(参数: id，newPassword)
+	 * @return
+	 */
+	public boolean updateUserPassword(long id,String password);
+	
+	/**
+	 * 7修改用户详细信息
+	 * @param u	(参数：name,email,userId)
+	 * @return
+	 */
+	public boolean updateUserDetail(UserDetail u);
+	
+	/**
+	 * 8获取用户列表,通过视图
 	 * @return
 	 */
 	public List getUserList();

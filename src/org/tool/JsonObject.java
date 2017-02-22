@@ -8,7 +8,7 @@ public class JsonObject {
 	public static Object getResult(int code,String message,Object data){
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("code", code);
-		map.put("message", message);
+		map.put("msg", message);
 		map.put("data", data);
 		return map;
 	}

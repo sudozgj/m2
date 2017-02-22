@@ -59,7 +59,7 @@ public class LogInterceptor implements HandlerInterceptor {
 				return true;
 			} else { // 未登录
 				Map<String, Object> map = new HashMap<String, Object>();
-				map.put("msg", "无权限访问,请先登录");
+				map.put("msg", "操作无效,请先登录");
 				map.put("code", "0");
 				map.put("data", "http://localhost:8080/m2/login?username=admin&password=123");
 
