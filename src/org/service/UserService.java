@@ -1,7 +1,5 @@
 package org.service;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.model.UserDetail;
@@ -13,6 +11,13 @@ public interface UserService {
 	 * @return
 	 */
 	public Object checkUsername(String username);
+	
+	/**
+	 * 1.5通过id获取用户信息，这里使用缓存session中保存的id来查询
+	 * @param session
+	 * @return
+	 */
+	public Object getUser(HttpSession session);
 	
 	/**
 	 * 2添加用户，注册

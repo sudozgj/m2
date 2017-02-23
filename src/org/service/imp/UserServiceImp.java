@@ -12,6 +12,7 @@ import org.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tool.JsonObject;
+import org.view.VUserId;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -20,10 +21,19 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public Object checkUsername(String username) {
-		if (uDao.getUser(username)==null)
+		if (uDao.getUser(username) == null)
 			return JsonObject.getResult(1, "用户名可用", true);
 		else
 			return JsonObject.getResult(0, "用户名重复", false);
+	}
+
+	@Override
+	public Object getUser(HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		long id = user.getId();
+		VUserId v = uDao.getUser(id);
+
+		return JsonObject.getResult(1, "当前用户信息", v);
 	}
 
 	@Override
@@ -44,7 +54,7 @@ public class UserServiceImp implements UserService {
 	@Override
 	public Object login(HttpSession httpSession, String username,
 			String password) {
-		User u = uDao.getUser(username,password);
+		User u = uDao.getUser(username, password);
 		if (u != null) {
 			httpSession.setAttribute("user", u);
 			return JsonObject.getResult(1, "登录成功", true);
@@ -65,17 +75,17 @@ public class UserServiceImp implements UserService {
 			return JsonObject.getResult(0, "只有超级管理员才能删除用户", false);
 		}
 	}
-	
+
 	@Override
 	public Object updateUserPassword(HttpSession httpSession, String oPassword,
 			String nPassword) {
 		User user = (User) httpSession.getAttribute("user");
 		if (user.getPassword().equals(oPassword)) {
-			if (uDao.updateUserPassword(user.getId(), nPassword)){
+			if (uDao.updateUserPassword(user.getId(), nPassword)) {
 				user.setPassword(nPassword);
 				httpSession.setAttribute("user", user);
 				return JsonObject.getResult(1, "修改密码成功", true);
-			}else
+			} else
 				return JsonObject.getResult(0, "修改密码失败", false);
 		} else {
 			return JsonObject.getResult(0, "密码错误", false);
@@ -83,10 +93,10 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public Object updateUserDetail(HttpSession session,UserDetail u) {
+	public Object updateUserDetail(HttpSession session, UserDetail u) {
 		User user = (User) session.getAttribute("user");
 		u.setUserId(user.getId());
-		if(uDao.updateUserDetail(u))
+		if (uDao.updateUserDetail(u))
 			return JsonObject.getResult(1, "修改用户信息成功", true);
 		else
 			return JsonObject.getResult(0, "修改用户信息成功", false);
@@ -106,5 +116,4 @@ public class UserServiceImp implements UserService {
 		list.add(user);
 		return JsonObject.getResult(1, "获取session", list);
 	}
-
 }

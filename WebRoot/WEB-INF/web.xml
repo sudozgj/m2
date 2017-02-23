@@ -17,6 +17,11 @@
 		<url-pattern>/admin</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.txt</url-pattern>
+	</servlet-mapping>
+
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

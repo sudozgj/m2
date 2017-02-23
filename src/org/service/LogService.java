@@ -1,7 +1,12 @@
 package org.service;
 
-import java.util.Map;
 
 public interface LogService {
-	public Map getLogList(Integer start,Integer limit);
+	/**
+	 * 获取日志列表，分页参数start、limit不传默认为0、15
+	 * @param start
+	 * @param limit
+	 * @return
+	 */
+	public Object getLogList(Integer start,Integer limit);
 }

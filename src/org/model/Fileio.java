@@ -13,6 +13,7 @@ public class Fileio implements java.io.Serializable {
 	private String filename;
 	private Long time;
 	private String dir;
+	private String url;
 
 	// Constructors
 
@@ -21,11 +22,13 @@ public class Fileio implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Fileio(String username, String filename, Long time, String dir) {
+	public Fileio(String username, String filename, Long time, String dir,
+			String url) {
 		this.username = username;
 		this.filename = filename;
 		this.time = time;
 		this.dir = dir;
+		this.url = url;
 	}
 
 	// Property accessors
@@ -68,6 +71,14 @@ public class Fileio implements java.io.Serializable {
 
 	public void setDir(String dir) {
 		this.dir = dir;
+	}
+
+	public String getUrl() {
+		return this.url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }

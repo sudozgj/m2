@@ -15,6 +15,13 @@ public interface UserDao {
 	public User getUser(String username);
 	
 	/**
+	 * 1.5通过id获取用户信息+详细信息，返回的是视图
+	 * @param id
+	 * @return
+	 */
+	public VUserId getUser(long id);
+	
+	/**
 	 * 2验证登录
 	 * @param u
 	 * @return

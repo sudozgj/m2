@@ -25,7 +25,6 @@
 			<mvc:exclude-mapping path="/js/**" />
 			<mvc:exclude-mapping path="/css/**" />
 			<mvc:exclude-mapping path="/*.html" />
-			<mvc:exclude-mapping path="/UpFileDir/**" />
 			<bean class="org.interceptor.LogInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

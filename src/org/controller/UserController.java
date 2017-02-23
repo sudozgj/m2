@@ -26,6 +26,12 @@ public class UserController {
 		return uService.checkUsername(username);
 	}
 
+	@RequestMapping("/getUser")
+	@ResponseBody
+	public Object getUser(HttpSession session)throws Exception{
+		return uService.getUser(session);
+	}
+	
 	@RequestMapping("/register")
 	@ResponseBody
 	public Object register(User u) throws Exception {

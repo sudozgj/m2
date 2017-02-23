@@ -8,6 +8,7 @@ import org.dao.LogDao;
 import org.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.tool.JsonObject;
 
 @Service
 public class LogServiceImp implements LogService {
@@ -15,13 +16,13 @@ public class LogServiceImp implements LogService {
 	private LogDao lDao;
 	
 	@Override
-	public Map getLogList(Integer start,Integer limit) {
+	public Object getLogList(Integer start,Integer limit) {
 		Map<String, Object> map = new HashMap<>();
 		long count = lDao.getLogCount();
 		List list = lDao.getLogList(start,limit);
 		map.put("count", count);
 		map.put("list", list);
-		return map;
+		return JsonObject.getResult(1, "获取日志列表", map);
 	}
 
 }

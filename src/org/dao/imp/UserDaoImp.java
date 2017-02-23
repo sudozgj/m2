@@ -36,6 +36,24 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
+	public VUserId getUser(long id) {
+		try {
+			Session session = HibernateSessionFactory.getSession();
+			SQLQuery sqlQuery = session.createSQLQuery("select * from v_user where id=?");
+			sqlQuery.setParameter(0, id);
+			sqlQuery.addEntity(VUser.class);
+			sqlQuery.setMaxResults(1);
+
+			VUser v = (VUser) sqlQuery.uniqueResult();
+			
+			return v.getId();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
 	public User getUser(String username, String password) {
 		try {
 			Session session = HibernateSessionFactory.getSession();
@@ -185,5 +203,4 @@ public class UserDaoImp implements UserDao {
 			HibernateSessionFactory.closeSession();
 		}
 	}
-
 }

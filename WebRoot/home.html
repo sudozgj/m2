@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.goup.min.js"></script>
+<script src="js/home.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.goup({
+			trigger : 100,
+			bottomOffset : 100, //距离下
+			locationOffset : 20, //距离右
+			//    title: 'This is a Demo',
+			titleAsText : true
+		});
+	});
+</script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<nav class="navbar navbar-default navbar-inverse navbar-fixed-top"
+					role="navigation" id="dh">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span><span
+								class="icon-bar"></span><span class="icon-bar"></span><span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="home.html">Home</a>
+					</div>
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#">Download</a></li>
+							<li><a href="#">About us</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Dropdown<strong class="caret"></strong>
+							</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+									<li class="divider"></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#">Link</a>
+							</li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">User<strong class="caret"></strong>
+							</a>
+								<ul class="dropdown-menu">
+									<li><a href="user.html">用户信息</a></li>
+									<li data-toggle="modal" data-target="#editModal"><a
+										href="#">编辑信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li class="divider"></li>
+									<li><a href="login.html">Logout</a></li>
+								</ul></li>
+						</ul>
+					</div>
+				</nav>
+				<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true"
+					data-backdrop="static">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="myModalLabel">用户信息</h4>
+							</div>
+							<div class="modal-body">
+								<form role="form">
+									<div class="form-group">
+										<label for="username">名字</label> <input type="text"
+											class="form-control" id="username" placeholder="请输入用户名">
+									</div>
+									<div class="form-group">
+										<label for="password">密码</label> <input type="text"
+											class="form-control" id="password" placeholder="请输入密码">
+									</div>
+									<div class="checkbox">
+										<label> <input type="checkbox">选择</label>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">取消</button>
+								<button type="button" class="btn btn-primary">确定</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal -->
+				</div>
+				<div class="jumbotron">
+					<h1>Welcome</h1>
+					<p>This is a template for a simple marketing or informational
+						website. It includes a large callout called the hero unit and
+						three supporting pieces of content. Use it as a starting point to
+						create something more unique.</p>
+					<p>
+						<a class="btn btn-primary btn-large" href="#" id="learnMore">Learn more</a>
+					</p>
+				</div>
+				<div class="row clearfix">
+					<div class="col-md-4 column">
+						<ul>
+							<li>Lorem ipsum dolor sit amet</li>
+							<li>Consectetur adipiscing elit</li>
+							<li>Integer molestie lorem at massa</li>
+							<li>Facilisis in pretium nisl aliquet</li>
+							<li>Nulla volutpat aliquam velit</li>
+							<li>Faucibus porta lacus fringilla vel</li>
+							<li>Aenean sit amet erat nunc</li>
+							<li>Eget porttitor lorem</li>
+						</ul>
+					</div>
+					<div class="col-md-8 column">
+						<table class="table table-bordered table-hover" id="userTable">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>用户名</th>
+									<th>名字</th>
+									<th>邮箱</th>
+									<th>创建时间</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<ul class="pagination">
+							<li><a href="#">Prev</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">Next</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<ul id="myTab" class="nav nav-tabs">
+					<li class="active"><a href="#home" data-toggle="tab"> 菜鸟教程
+					</a></li>
+					<li><a href="#ios" data-toggle="tab">iOS</a>
+					</li>
+					<li class="dropdown"><a href="#" id="myTabDrop1"
+						class="dropdown-toggle" data-toggle="dropdown">Java <b
+							class="caret"></b> </a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+							<li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a>
+							</li>
+							<li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a>
+							</li>
+						</ul></li>
+				</ul>
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade in active" id="home">
+						<p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+					</div>
+					<div class="tab-pane fade" id="ios">
+						<p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch
+							和 Apple TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS
+							是苹果的移动版本。</p>
+					</div>
+					<div class="tab-pane fade" id="jmeter">
+						<p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+					</div>
+					<div class="tab-pane fade" id="ejb">
+						<p>Enterprise Java
+							Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web
+							Logic 等）的 J2EE 上。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+			<div class="col-md-4 column">
+				<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce
+					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+					magna mollis euismod. Donec sed odio dui.</p>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

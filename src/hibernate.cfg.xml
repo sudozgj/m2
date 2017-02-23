@@ -23,9 +23,11 @@
 	<mapping resource="org/model/User.hbm.xml" />
 	<mapping resource="org/model/Log.hbm.xml" />
 	<mapping resource="org/model/UserDetail.hbm.xml" />
+	<mapping resource="org/model/Fileio.hbm.xml" />
+	
 	<mapping resource="org/view/VLog.hbm.xml" />
 	<mapping resource="org/view/VUser.hbm.xml" />
-	<mapping resource="org/model/Fileio.hbm.xml" />
+	<mapping resource="org/view/VFile.hbm.xml" />
 
 </session-factory>
 
