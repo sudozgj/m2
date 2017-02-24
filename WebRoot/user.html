@@ -2,208 +2,265 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>User</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.goup.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $.goup({
-                trigger: 100,
-                bottomOffset: 100,
-                locationOffset: 100,
-                //    title: 'This is a Demo',
-                titleAsText: true
-            });
-        });
-    </script>
+<meta charset="UTF-8">
+<title>User</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/user.css" type="text/css"></link>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.goup.min.js"></script>
+<script type="text/javascript" src="js/user.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.goup({
+			trigger : 100,
+			bottomOffset : 100,
+			locationOffset : 100,
+			//    title: 'This is a Demo',
+			titleAsText : true
+		});
+	});
+</script>
+
 </head>
-
+<style>
+	body{
+		padding:50px;
+	}
+</style>
 <body>
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation" id="dh">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1"><span
-                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
-                            class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="home.html">Home</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">Download</a>
-                        </li>
-                        <li>
-                            <a href="#">About us</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
-                                    class="caret"></strong></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Another action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Something else here</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="#">Separated link</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="#">One more separated link</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#"><span class="glyphicon glyphicon-user"></span>Link</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">User<strong
-                                    class="caret"></strong></a>
-                            <ul class="dropdown-menu">
-                                <li data-toggle="modal" data-target="#editModal">
-                                    <a href="#">用户信息</a>
-                                </li>
-                                <li>
-                                    <a href="#">修改密码</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li>
-                                    <a href="login.html">Logout</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="jumbotron">
-            </div>
-        </div>
-    </div>
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <ul id="myTab" class="nav nav-tabs">
-                <li class="active">
-                    <a href="#home" data-toggle="tab">
-                        用户详情
-                    </a>
-                </li>
-                <li><a href="#editUser" data-toggle="tab">修改信息</a></li>
-                <li><a href="#chgPwd" data-toggle="tab">修改密码</a></li>
-                <li class="dropdown">
-                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Java
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-                        <li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a></li>
-                        <li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade in active" id="home">
-
-                </div>
-                <div class="tab-pane fade" id="editUser">
-                    <form class="form-horizontal" role="form">
-                        <p></p>
-                        <div class="form-group">
-                            <label for="username" class="col-sm-2 control-label">用户名</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="username" placeholder="请输入名字">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">名字</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="name" placeholder="请输入姓">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-sm-2 control-label">邮箱</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="email" placeholder="请输入邮箱">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">请记住我
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">登录</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="tab-pane fade" id="chgPwd">
-                    <form class="form-horizontal" role="form">
-                        <p></p>
-                        <div class="form-group">
-                            <label for="username" class="col-sm-2 control-label">密码</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="username" placeholder="请输入名字">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">新密码</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="name" placeholder="请输入姓">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-sm-2 control-label">确认密码</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="email" placeholder="请输入邮箱">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">请记住我
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">登录</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="tab-pane fade" id="jmeter">
-                    <p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
-                </div>
-                <div class="tab-pane fade" id="ejb">
-                    <p>Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<nav class="navbar navbar-default navbar-inverse navbar-fixed-top"
+					role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span><span
+								class="icon-bar"></span><span class="icon-bar"></span><span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="home.html">Home</a>
+					</div>
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#">Download</a></li>
+							<li><a href="#">About us</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">Dropdown<strong class="caret"></strong>
+							</a>
+								<ul class="dropdown-menu">
+									<li><a href="test.html">Action</a></li>
+									<li><a href="test2.html">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+									<li class="divider"></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#">Link</a>
+							</li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">User<strong class="caret"></strong> </a>
+								<ul class="dropdown-menu">
+									<li data-toggle="modal" data-target="#editModal"><a
+										href="#">用户信息</a></li>
+									<li><a href="#">修改密码</a></li>
+									<li class="divider"></li>
+									<li><a href="login.html">Logout</a></li>
+								</ul></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<!-- 模态框 提示登录 -->
+		<div class="modal fade" id="longinWarn" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true"
+			data-backdrop="static">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">请先登录</h4>
+					</div>
+					<div class="modal-body">
+						<form role="form">
+							<div class="form-group">
+								<label for="modalUsername">用户名</label> <input type="text"
+									class="form-control" id="modalUsername" placeholder="请输入用户名">
+							</div>
+							<div class="form-group">
+								<label for="modalPassword">密码</label> <input type="text"
+									class="form-control" id="modalPassword" placeholder="请输入密码">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button type="button" class="btn btn-primary" id="loginButton">登录</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /模态框 提示登录 -->
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<div class="userInfo">
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active"><a href="#home" data-toggle="tab">
+								用户详情 </a></li>
+						<li><a href="#editUser" data-toggle="tab">修改信息</a>
+						</li>
+						<li><a href="#chgPwd" data-toggle="tab">修改密码</a>
+						</li>
+						<li class="dropdown"><a href="#" id="myTabDrop1"
+							class="dropdown-toggle" data-toggle="dropdown">Java <b
+								class="caret"></b> </a>
+							<ul class="dropdown-menu" role="menu"
+								aria-labelledby="myTabDrop1">
+								<li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a>
+								</li>
+								<li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a>
+								</li>
+							</ul></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="home">
+							<form class="form-horizontal" role="form">
+								<p></p>
+								<div class="form-group">
+									<label for="iId" class="col-sm-2 control-label">ID</label>
+									<div class="col-sm-8">
+										<p class="form-control-static" id="iId">————</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="iUsername" class="col-sm-2 control-label">用户名</label>
+									<div class="col-sm-8">
+										<p class="form-control-static" id="iUsername">————</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="iName" class="col-sm-2 control-label">姓名</label>
+									<div class="col-sm-8">
+										<p class="form-control-static" id="iName">————</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="iEmail" class="col-sm-2 control-label">邮箱</label>
+									<div class="col-sm-8">
+										<p class="form-control-static" id="iEmail">————</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="iTime" class="col-sm-2 control-label">创建时间</label>
+									<div class="col-sm-8">
+										<p class="form-control-static" id="iTime">————</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="button" class="btn btn-primary" id="iEdit">编辑</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane fade" id="editUser">
+							<form class="form-horizontal" role="form">
+								<p></p>
+								<div class="form-group">
+									<label for="username" class="col-sm-2 control-label">用户名</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="username"
+											placeholder="请输入名字">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">名字</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="name"
+											placeholder="请输入姓">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="email" class="col-sm-2 control-label">邮箱</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="email"
+											placeholder="请输入邮箱">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<div class="checkbox">
+											<label> <input type="checkbox">请记住我 </label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" class="btn btn-primary">登录</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane fade" id="chgPwd">
+							<form class="form-horizontal" role="form">
+								<p></p>
+								<div class="form-group">
+									<label for="username" class="col-sm-2 control-label">密码</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="username"
+											placeholder="请输入名字">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">新密码</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="name"
+											placeholder="请输入姓">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="email" class="col-sm-2 control-label">确认密码</label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control" id="email"
+											placeholder="请输入邮箱">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<div class="checkbox">
+											<label> <input type="checkbox">请记住我 </label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" class="btn btn-primary">登录</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="tab-pane fade" id="jmeter">
+							<p>jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+						</div>
+						<div class="tab-pane fade" id="ejb">
+							<p>Enterprise Java
+								Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web
+								Logic 等）的 J2EE 上。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

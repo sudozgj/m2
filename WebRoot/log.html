@@ -8,7 +8,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.goup.min.js"></script>
-<script src="js/home.js"></script>
+<script src="js/log.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -23,7 +23,7 @@
 </script>
 <style>
 body {
-	padding: 50px;
+	padding: 100px;
 }
 </style>
 </head>
@@ -55,9 +55,9 @@ body {
 								data-toggle="dropdown">Dropdown<strong class="caret"></strong>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a href="test.html">test</a>
+									<li><a href="test.html">Action</a>
 									</li>
-									<li><a href="test2.html">test2</a>
+									<li><a href="test2.html">Another action</a>
 									</li>
 									<li><a href="#">Something else here</a>
 									</li>
@@ -159,42 +159,21 @@ body {
 					</div>
 				</div>
 				<!-- /模态框 编辑信息 -->
-				<div class="jumbotron">
-					<h1>Welcome</h1>
-						<p>This is a persional page created by z.</p>
-					<p>
-						<a class="btn btn-primary btn-large" href="#" id="learnMore">Learn
-							more</a>
-					</p>
-				</div>
 				<div class="row clearfix">
-					<div class="col-md-4 column">
-						<ul>
-							<li>User</li>
-							<li>File</li>
-							<li>Log</li>
-							<li>Board</li>
-							<li>MD5 & SHA</li>
-							<li>Xls</li>
-							<li>Property</li>
-							<li>Ueditor</li>
-						</ul>
-					</div>
-					<div class="col-md-8 column">
-						<table class="table table-bordered table-hover" id="userTable">
+					<div class="col-md-12 column">
+						<table class="table table-bordered table-hover table-striped" id="logTable">
 							<thead>
 								<tr>
 									<th>编号</th>
 									<th>用户名</th>
-									<th>名字</th>
-									<th>邮箱</th>
-									<th>创建时间</th>
+									<th>操作</th>
+									<th>时间</th>
 								</tr>
 							</thead>
 							<tbody>
 							</tbody>
 						</table>
-						<ul class="pagination">
+						<ul class="pagination" id="pageIndex">
 							<li><a href="#">Prev</a>
 							</li>
 							<li><a href="#">1</a>

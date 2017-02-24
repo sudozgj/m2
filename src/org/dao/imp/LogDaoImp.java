@@ -27,7 +27,7 @@ public class LogDaoImp implements LogDao {
 			if (start == null)
 				start = 0;
 			if (limit == null)
-				limit = 20;
+				limit = 15;
 			sqlQuery.setFirstResult(start);
 			sqlQuery.setMaxResults(limit);
 

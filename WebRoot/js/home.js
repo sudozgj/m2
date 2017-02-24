@@ -6,7 +6,6 @@ $(function(){
 		dataType:"json",
 		data:{"id":714},
 		success:function(data){
-			debugger;
 			if(data.code===1){
 				var tableData;
 				for(var i=0;i<data.data.length;i++){
@@ -20,7 +19,7 @@ $(function(){
 				}
 				$("#userTable tbody").html(tableData);
 			}else{
-				alert("error");
+				$("#longinWarn").modal('toggle');
 			}
 		},
 		error:function(jqXHR){
@@ -28,7 +27,28 @@ $(function(){
 		}
 	});
 
-	$("#learnMore").click(function(){
-		alert("...");
+	$("#loginButton").click(function(){
+		var user={
+					"username":$("#lUsername").val(),
+					"password":$("#lPassword").val()
+				};
+		$.ajax({
+			type:"post",
+			url:"login",
+			cache:false,
+			dataType:"json",
+			data:user,
+			success:function(data){
+				if(data.data){
+					location.reload();
+					$("#longinWarn").modal('toggle');
+				}else{
+					alert(data.msg);
+				}
+			},
+			error:function(jqXHR){
+				alert("error");
+			}
+		});
 	});
 });
