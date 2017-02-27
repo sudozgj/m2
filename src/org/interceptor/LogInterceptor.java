@@ -48,14 +48,15 @@ public class LogInterceptor implements HandlerInterceptor {
 			User user = (User) request.getSession().getAttribute("user");
 
 			if (user != null) { // 登录过
-				LogDao lDao = new LogDaoImp();
-				Log log = new Log();
-				log.setUsername(user.getUsername());
-				log.setOperation(action);
-				log.setTime(new Date().getTime() / 1000);
-
-				lDao.addLog(log);
-
+				if(!action.equals("getLogList")){
+					LogDao lDao = new LogDaoImp();
+					Log log = new Log();
+					log.setUsername(user.getUsername());
+					log.setOperation(action);
+					log.setTime(new Date().getTime() / 1000);
+					
+					lDao.addLog(log);
+				}
 				return true;
 			} else { // 未登录
 				Map<String, Object> map = new HashMap<String, Object>();

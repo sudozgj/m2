@@ -45,50 +45,37 @@ body {
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">Download</a>
-							</li>
-							<li><a href="#">About us</a>
-							</li>
-							<li><a href="log.html">Data</a>
-							</li>
+							<li class="active"><a href="#">Download</a></li>
+							<li><a href="#">About us</a></li>
+							<li><a href="log.html">Data</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">Dropdown<strong class="caret"></strong>
 							</a>
 								<ul class="dropdown-menu">
-									<li><a href="test.html">Action</a>
-									</li>
-									<li><a href="test2.html">Another action</a>
-									</li>
-									<li><a href="#">Something else here</a>
-									</li>
+									<li><a href="test.html">Action</a></li>
+									<li><a href="test2.html">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
 									<li class="divider"></li>
-									<li><a href="#">Separated link</a>
-									</li>
+									<li><a href="#">Separated link</a></li>
 									<li class="divider"></li>
-									<li><a href="#">One more separated link</a>
-									</li>
-								</ul>
-							</li>
+									<li><a href="#">One more separated link</a></li>
+								</ul></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="#"><img class="img-user"
-								src="http://192.168.1.115:8080/m2/UpFileDir/1487837588_0.png"
-								width="15px" height="15px" />Link</a></li>
+									src="http://192.168.1.115:8080/m2/UpFileDir/1487837588_0.png"
+									width="15px" height="15px" />Link</a>
+							</li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">User<strong class="caret"></strong> </a>
 								<ul class="dropdown-menu">
-									<li><a href="user.html">用户信息</a>
-									</li>
+									<li><a href="user.html">用户信息</a></li>
 									<li data-toggle="modal" data-target="#editModal"><a
-										href="#">编辑信息</a>
-									</li>
-									<li><a href="#">修改密码</a>
-									</li>
+										href="#">编辑信息</a></li>
+									<li><a href="#">修改密码</a></li>
 									<li class="divider"></li>
-									<li><a href="login.html">Logout</a>
-									</li>
-								</ul>
-							</li>
+									<li><a href="login.html">Logout</a></li>
+								</ul></li>
 						</ul>
 					</div>
 				</nav>
@@ -157,11 +144,11 @@ body {
 							</div>
 						</div>
 					</div>
-				</div>
-				<!-- /模态框 编辑信息 -->
+				</div><!-- /模态框 编辑信息 -->
 				<div class="row clearfix">
 					<div class="col-md-12 column">
-						<table class="table table-bordered table-hover table-striped" id="logTable">
+						<table class="table table-hover table-striped table-condensed"
+							id="logTable">
 							<thead>
 								<tr>
 									<th>编号</th>
@@ -173,21 +160,18 @@ body {
 							<tbody>
 							</tbody>
 						</table>
+						<div class="row">
+							<div class="col-md-1"><strong>行数</strong></div>
+							<div class="col-md-3" id="lineNum">
+								<select class="form-control">
+									<option>10</option>
+									<option selected="selected">15</option>
+									<option>20</option>
+								</select>
+							</div>
+						</div>
 						<ul class="pagination" id="pageIndex">
-							<li><a href="#">Prev</a>
-							</li>
-							<li><a href="#">1</a>
-							</li>
-							<li><a href="#">2</a>
-							</li>
-							<li><a href="#">3</a>
-							</li>
-							<li><a href="#">4</a>
-							</li>
-							<li><a href="#">5</a>
-							</li>
-							<li><a href="#">Next</a>
-							</li>
+
 						</ul>
 					</div>
 				</div>
@@ -197,18 +181,18 @@ body {
 			<div class="col-md-12 column">
 				<ul id="myTab" class="nav nav-tabs">
 					<li class="active"><a href="#home" data-toggle="tab"> 菜鸟教程
-					</a>
+					</a></li>
+					<li><a href="#ios" data-toggle="tab">iOS</a>
 					</li>
-					<li><a href="#ios" data-toggle="tab">iOS</a></li>
 					<li class="dropdown"><a href="#" id="myTabDrop1"
 						class="dropdown-toggle" data-toggle="dropdown">Java <b
 							class="caret"></b> </a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
 							<li><a href="#jmeter" tabindex="-1" data-toggle="tab">jmeter</a>
 							</li>
-							<li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a></li>
-						</ul>
-					</li>
+							<li><a href="#ejb" tabindex="-1" data-toggle="tab">ejb</a>
+							</li>
+						</ul></li>
 				</ul>
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane fade in active" id="home">
