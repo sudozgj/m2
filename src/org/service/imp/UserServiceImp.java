@@ -99,7 +99,7 @@ public class UserServiceImp implements UserService {
 		if (uDao.updateUserDetail(u))
 			return JsonObject.getResult(1, "修改用户信息成功", true);
 		else
-			return JsonObject.getResult(0, "修改用户信息成功", false);
+			return JsonObject.getResult(0, "修改用户信息失敗", false);
 	}
 
 	@Override

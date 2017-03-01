@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#username").blur(function() {
+			var uName = $("#username").val();
+			$.ajax({
+				type : "post",
+				url : "checkUsername",
+				data : {
+					"username" : uName
+				},
+				dataType : "json",
+				success : function(data) {
+					if (!data.data) {
+						alert(data.msg);
+						$("#username").val("");
+						$("#username").focus();
+					}
+				},
+				error : function(jqXHR) {
+					alert("error");
+				}
+			});
+		});
+
+		$("#registerButton").click(function() {
+			var n = $("#username").val();
+			var p = $("#password").val();
+			var a = $("#aPwd").val();
+			if(n==""||p==""||a==""){
+				alert("信息不完整");
+				return
+			}else if(p!=a){
+				alert("两次密码不一致");
+			}else{
+				$.ajax({
+					type:"post",
+					url:"register",
+					data:{
+						"username":n,
+						"password":p
+					},
+					dataType:"json",
+					success:function(data){
+						if(data.data){
+							if(confirm("注册成功，转到登录...")){
+								location.href="login.html";
+							}
+							else{
+								$("#username").val("");
+								$("#password").val("");
+								$("#aPwd").val("");
+							}
+						}
+						else
+							alert(data.msg);
+					},
+					error:function(jqXHR){
+						alert("error");
+					}
+				});
+			}
+		});
+	});
+</script>
+</head>
+
+<body background="images/bg.jpg">
+	<div class="container">
+		<!-- Codrops top bar -->
+		<br />
+		<section>
+			<div id="container_demo">
+				<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
+					id="tologin"></a>
+				<div id="wrapper">
+					<div id="login" class="animate form">
+						<form>
+							<h1>Register</h1>
+							<p>
+								<label for="username" class="uname" data-icon="u">用户名 </label> <input
+									id="username" name="username" required="required" type="text" placeholder="Username" />
+							</p>
+							<p>
+								<label for="password" class="youpasswd" data-icon="p">
+									密码 </label> <input id="password" name="password" required="required"
+									type="password" placeholder="Password" />
+							</p>
+							<p>
+								<label for="password" class="youpasswd" data-icon="p">
+									确认密码 </label> <input id="aPwd" name="aPwd" required="required"
+									type="password" placeholder="Confirm Password" />
+							</p>
+							<div class="progress">
+								<div class="progress-bar progress-bar-striped active"
+									role="progressbar" aria-valuenow="45" aria-valuemin="0"
+									aria-valuemax="100" style="width: 45%">
+									<span class="sr-only">45% Complete</span>
+								</div>
+							</div>
+							<button type="button" class="btn btn-lg btn-primary btn-block"
+								id="registerButton">注册</button>
+							<br>
+							<button type="button" class="btn btn-lg btn-success btn-block"
+								id="loginButton" onclick="window.location.href='login.html'">登录</button>
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</body>
+
+</html>

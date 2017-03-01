@@ -11,48 +11,184 @@
 <script src="js/home.js"></script>
 
 <script type="text/javascript">
-	$(document).ready(function() {
+	$(document).ready(function() { //返回顶部按钮
 		$.goup({
 			trigger : 100,
 			bottomOffset : 100, //距离下
 			locationOffset : 20, //距离右
-			//    title: 'This is a Demo',
+			//title: 'This is a Demo',
 			titleAsText : true
 		});
 	});
+	$(function() {
+		$.ajax({
+			type : "post",
+			url : "getUser",
+			cache : false,
+			dataType : "json",
+			success : function(data) {
+				if (data.code === 1) {
+					$("#emId").val(data.data.id);
+					$("#emUsername").val(data.data.username);
+					$("#emName").val(data.data.name);
+					$("#emEmail").val(data.data.email);
+					$("#emTime").val(data.data.createTime);
+					$("#nav_user").html(data.data.username);
+				} else {
+					$("#longinWarn").modal('toggle'); //弹出登录模态框（没有登录，被拦截器拦截后进入）
+				}
+			},
+			error : function(jqXHR) {
+				alert("error");
+			}
+		});
+
+		$.ajax({ //加载用户列表，显示
+			type : "post",
+			url : "getUserList",
+			cache : false,
+			dataType : "json",
+			success : function(data) {
+				if (data.code === 1) {
+					var tableData;
+					for ( var i = 0; i < data.data.length; i++) {
+						tableData += "<tr>" + "<td>" + data.data[i].id
+								+ "</td>" + "<td>" + data.data[i].username
+								+ "</td>" + "<td>" + data.data[i].name
+								+ "</td>" + "<td>" + data.data[i].email
+								+ "</td>" + "<td>" + data.data[i].createTime
+								+ "</td>" + "</tr>";
+					}
+					$("#userTable tbody").html(tableData);
+				}
+			},
+			error : function(jqXHR) {
+				alert("error");
+			}
+		});
+
+		$("#loginButton").click(function() { //登录按钮事件
+			var u = $("#lUsername").val();
+			var p = $("#lPassword").val();
+			if (u == "" || p == "") {
+				alert("信息不完整");
+				return;
+			}
+			$.ajax({
+				type : "post",
+				url : "login",
+				cache : false,
+				dataType : "json",
+				data : {
+					"username" : u,
+					"password" : p
+				},
+				success : function(data) {
+					if (data.data) {
+						location.reload();
+						$("#longinWarn").modal('toggle');
+					} else {
+						alert(data.msg);
+					}
+				},
+				error : function(jqXHR) {
+					alert("error");
+				}
+			});
+		});
+
+		$("#chgPwdButton").click(function() { //修改密码按钮事件
+			var op = $("#coPassword").val();
+			var np = $("#cnPassword").val();
+			var cp = $("#caPassword").val();
+			if (op == "" || np == "" || cp == "") {
+				alert("信息不完整");
+			} else if (np != cp) {
+				alert("两次密码不一致");
+			} else {
+				$.ajax({
+					type : "post",
+					url : "updateUserPassword",
+					cache : false,
+					dataType : "json",
+					data : {
+						"oPwd" : op,
+						"nPwd" : np
+					},
+					success : function(data) {
+						if (data.data) {
+							alert(data.msg);
+							$("#pwdModal").modal('toggle');
+						} else {
+							alert(data.msg);
+						}
+					},
+					error : function(jqXHR) {
+						alert("error");
+					}
+				});
+			}
+		});
+
+		$("#editUserBtn").click(function() {
+			var i = $("#emId").val();
+			var u = $("#emUsername").val();
+			var n = $("#emName").val();
+			var e = $("#emEmail").val();
+			var t = $("#emTime").val();
+			$.ajax({
+				type : "post",
+				url : "updateUserDetail",
+				cache : false,
+				dataType : "json",
+				data : {
+					"name" : n,
+					"email" : e
+				},
+				success : function(data) {
+					if (data.data) {
+						alert(data.msg);
+						$("#editModal").modal('toggle');
+					} else {
+						alert(data.msg);
+					}
+				},
+				error : function(jqXHR) {
+					alert("error");
+				}
+			});
+		});
+	});
 </script>
-<style>
-body {
-	padding: 50px;
-}
-</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<nav class="navbar navbar-default navbar-inverse navbar-fixed-top"
+				<nav class="navbar navbar-default navbar-fixed-top"
 					role="navigation">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse"
-							data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span><span
-								class="icon-bar"></span><span class="icon-bar"></span><span
-								class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="home.html">Home</a>
-					</div>
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">Download</a>
+							<li class="active"><a href="home.html"><strong><span
+										class="glyphicon glyphicon-home" aria-hidden="true"></span>
+										Home</strong> </a>
 							</li>
-							<li><a href="#">About us</a>
+							<li><a href="#"><span
+									class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+									Download</a>
 							</li>
-							<li><a href="log.html">Data</a>
+							<li><a href="#"><span class="glyphicon glyphicon-tag"
+									aria-hidden="true"></span> Note</a>
+							</li>
+							<li><a href="log.html"><span
+									class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+									Data</a>
 							</li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Dropdown<strong class="caret"></strong>
+								data-toggle="dropdown"><span
+									class="glyphicon glyphicon-sort-by-attributes"
+									aria-hidden="true"></span> Dropdown<strong class="caret"></strong>
 							</a>
 								<ul class="dropdown-menu">
 									<li><a href="test.html">test</a>
@@ -71,27 +207,39 @@ body {
 							</li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#"><span class="glyphicon glyphicon-cog"
+									aria-hidden="true"></span> Link</a></li>
 							<li><a href="#"><img class="img-user"
-								src="http://192.168.1.115:8080/m2/UpFileDir/1487837588_0.png"
-								width="15px" height="15px" />Link</a></li>
+									src="http://192.168.1.115:8080/m2/UpFileDir/1487837588_0.png"
+									width="15px" height="15px" />Link</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">User<strong class="caret"></strong> </a>
+								data-toggle="dropdown"><span
+									class="glyphicon glyphicon-user" aria-hidden="true"></span> <span
+									id="nav_user">User</span> <strong class="caret"></strong> </a>
 								<ul class="dropdown-menu">
-									<li><a href="user.html">用户信息</a>
+									<li><a href="user.html"><span
+											class="glyphicon glyphicon-list" aria-hidden="true"></span>
+											用户信息</a>
 									</li>
 									<li data-toggle="modal" data-target="#editModal"><a
-										href="#">编辑信息</a>
+										href="#"><span class="glyphicon glyphicon-wrench"
+											aria-hidden="true"></span> 编辑信息</a>
 									</li>
-									<li><a href="#">修改密码</a>
+									<li data-toggle="modal" data-target="#pwdModal"><a
+										href="#"><span class="glyphicon glyphicon-lock"
+											aria-hidden="true"></span> 修改密码</a>
 									</li>
 									<li class="divider"></li>
-									<li><a href="login.html">Logout</a>
+									<li><a href="login.html"><span
+											class="glyphicon glyphicon-off" aria-hidden="true"></span>
+											Logout</a>
 									</li>
 								</ul>
 							</li>
 						</ul>
 					</div>
 				</nav>
+
 				<!-- 模态框 提示登录 -->
 				<div class="modal fade" id="longinWarn" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true"
@@ -99,8 +247,6 @@ body {
 					<div class="modal-dialog modal-sm">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-hidden="true">&times;</button>
 								<h4 class="modal-title" id="myModalLabel">请先登录</h4>
 							</div>
 							<div class="modal-body">
@@ -116,14 +262,15 @@ body {
 								</form>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">取消</button>
+								<button type="button" class="btn btn-info" data-dismiss="modal"
+									onclick="window.location.href='register.html'">去注册</button>
 								<button type="button" class="btn btn-primary" id="loginButton">登录</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- /模态框 提示登录 -->
+
 				<!-- 模态框 编辑信息 -->
 				<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true"
@@ -138,30 +285,83 @@ body {
 							<div class="modal-body">
 								<form role="form">
 									<div class="form-group">
-										<label for="username">名字</label> <input type="text"
-											class="form-control" id="username" placeholder="请输入用户名">
+										<label for="emId">ID</label> <input type="text"
+											class="form-control" id="emId" placeholder="ID" disabled>
 									</div>
 									<div class="form-group">
-										<label for="password">密码</label> <input type="text"
-											class="form-control" id="password" placeholder="请输入密码">
+										<label for="emUsername">用户名</label> <input type="text"
+											class="form-control" id="emUsername" placeholder="请输入用户名"
+											disabled>
 									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox">选择</label>
+									<div class="form-group">
+										<label for="emName">名字</label> <input type="text"
+											class="form-control" id="emName" placeholder="请输入用户名">
+									</div>
+									<div class="form-group">
+										<label for="emEmail">邮箱</label> <input type="text"
+											class="form-control" id="emEmail" placeholder="请输入密码">
+									</div>
+									<div class="form-group">
+										<label for="emTime">创建时间</label> <input type="text"
+											class="form-control" id="emTime" placeholder="请输入用户名"
+											disabled>
 									</div>
 								</form>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">取消</button>
-								<button type="button" class="btn btn-primary">确定</button>
+								<button type="button" class="btn btn-primary" id="editUserBtn">修改</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- /模态框 编辑信息 -->
+
+				<!-- 模态框 修改密码 -->
+				<div class="modal fade" id="pwdModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true"
+					data-backdrop="static">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="myModalLabel">修改密码</h4>
+							</div>
+							<div class="modal-body">
+								<form role="form">
+									<div class="form-group">
+										<label for="coPassword">密码</label> <input type="text"
+											class="form-control" id="coPassword" placeholder="请输入旧密码">
+									</div>
+									<div class="form-group">
+										<label for="cnPassword">新密码</label> <input type="text"
+											class="form-control" id="cnPassword" placeholder="请输入新密码">
+									</div>
+									<div class="form-group">
+										<label for="caPassword">确认密码</label> <input type="text"
+											class="form-control" id="caPassword" placeholder="请确认密码">
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">取消</button>
+								<button type="button" class="btn btn-primary" id="chgPwdButton">修改</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /模态框 修改密码 -->
+
+
+
+
+
 				<div class="jumbotron">
 					<h1>Welcome</h1>
-						<p>This is a persional page created by z.</p>
+					<p>This is a persional page created by z.</p>
 					<p>
 						<a class="btn btn-primary btn-large" href="#" id="learnMore">Learn
 							more</a>
@@ -169,7 +369,7 @@ body {
 				</div>
 				<div class="row clearfix">
 					<div class="col-md-4 column">
-						<ul>
+						<ul class="bg-info">
 							<li>User</li>
 							<li>File</li>
 							<li>Log</li>

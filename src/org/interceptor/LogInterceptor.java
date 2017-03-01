@@ -31,7 +31,7 @@ public class LogInterceptor implements HandlerInterceptor {
 
 		String action = request.getServletPath().substring(1);		//请求的接口名
 
-		if (action.equals("login") || action.equals("register")) {
+		if (action.equals("login") || action.equals("register") ||action.equals("checkUsername")) {
 			System.out.println("\n"+request.getContextPath()+"——"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"——"+action);
 			String username = request.getParameter("username");
 
