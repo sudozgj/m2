@@ -21,4 +21,10 @@ public interface LogDao {
 	 * @return
 	 */
 	public long getLogCount();
+	
+	/**
+	 * 统计日志每个类型的数目
+	 * @return
+	 */
+	public List getLogTypeCount();
 }

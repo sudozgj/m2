@@ -9,4 +9,10 @@ public interface LogService {
 	 * @return
 	 */
 	public Object getLogList(Integer start,Integer limit);
+	
+	/**
+	 * 统计日志每种类型的数目
+	 * @return
+	 */
+	public Object getLogTypeCount();
 }

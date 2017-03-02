@@ -25,4 +25,14 @@ public class LogServiceImp implements LogService {
 		return JsonObject.getResult(1, "获取日志列表", map);
 	}
 
+	@Override
+	public Object getLogTypeCount() {
+		Map<Object, Object> map = new HashMap<>();
+		List<Object[]> list = lDao.getLogTypeCount();
+		for(Object[] o:list){
+			map.put(o[0], o[1]);
+		}
+		return JsonObject.getResult(1, "获取日志类型数目", map);
+	}
+
 }

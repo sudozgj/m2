@@ -30,9 +30,9 @@ public class LogInterceptor implements HandlerInterceptor {
 //		System.out.println("\n——preHandle——");
 
 		String action = request.getServletPath().substring(1);		//请求的接口名
+		System.out.println("\n"+request.getContextPath()+"——"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"——"+action);
 
 		if (action.equals("login") || action.equals("register") ||action.equals("checkUsername")) {
-			System.out.println("\n"+request.getContextPath()+"——"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"——"+action);
 			String username = request.getParameter("username");
 
 			LogDao lDao = new LogDaoImp();
@@ -44,7 +44,6 @@ public class LogInterceptor implements HandlerInterceptor {
 
 			return true;
 		} else { // 非登录类型日志
-			System.out.println("\n"+request.getContextPath()+"——"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+"——"+action);
 			User user = (User) request.getSession().getAttribute("user");
 
 			if (user != null) { // 登录过

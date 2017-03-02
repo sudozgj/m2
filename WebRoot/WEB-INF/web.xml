@@ -8,6 +8,10 @@
 		<welcome-file>home.html</welcome-file>
 	</welcome-file-list>
 
+	<listener>  
+		<listener-class>org.controller.CountController</listener-class>   
+	</listener> 
+
 	<servlet>
 		<servlet-name>Admin</servlet-name>
 		<servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>

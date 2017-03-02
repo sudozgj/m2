@@ -73,7 +73,6 @@ public class LogDaoImp implements LogDao {
 	public long getLogCount() {
 		try {
 			Session session = HibernateSessionFactory.getSession();
-			Transaction ts = session.beginTransaction();
 
 			Query query = session.createQuery("select count(id) from Log");
 			query.setMaxResults(1);
@@ -82,6 +81,22 @@ public class LogDaoImp implements LogDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
+		} finally {
+			HibernateSessionFactory.closeSession();
+		}
+	}
+
+	@Override
+	public List getLogTypeCount() {
+		try {
+			Session session = HibernateSessionFactory.getSession();
+
+			SQLQuery sqlQuery = session
+					.createSQLQuery("select operation,count(operation) as count from v_log group by operation order by operation");
+			return sqlQuery.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		} finally {
 			HibernateSessionFactory.closeSession();
 		}

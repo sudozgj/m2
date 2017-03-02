@@ -41,10 +41,16 @@ public class UserController {
 
 	@RequestMapping("/login")
 	@ResponseBody
-	public Object login(HttpSession httpSession, User u) throws Exception {
-		return uService.login(httpSession, u.getUsername(), u.getPassword());
+	public Object login(HttpSession session, User u) throws Exception {
+		return uService.login(session, u.getUsername(), u.getPassword());
 	}
 
+	@RequestMapping("logout")
+	@ResponseBody
+	public Object logout(HttpSession session) throws Exception{
+		return uService.logout(session);
+	}
+	
 	@RequestMapping("/deleteUser")
 	@ResponseBody
 	public Object deleteUser(HttpSession session, long id) throws Exception {

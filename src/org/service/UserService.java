@@ -38,6 +38,13 @@ public interface UserService {
 	public Object login(HttpSession httpSession,String username,String password);
 	
 	/**
+	 * 3.5注销用户
+	 * @param session
+	 * @return
+	 */
+	public Object logout(HttpSession session);
+	
+	/**
 	 * 4删除用户及用户详细信息，仅超级管理员用
 	 * @param id
 	 * @return

@@ -11,19 +11,19 @@
 <script type="text/javascript">
 	$(function() {
 		$("#loginButton").click(function() {
-			if ($("#username").val() == "" || $("#password").val() == "") {
+			var u = $("#username").val();
+			var p = $("#password").val();
+			if (u == "" || p == "") {
 				alert("信息不完整!");
 				return;
 			}
-
-			var user = {
-				"username" : $("#username").val(),
-				"password" : $("#password").val()
-			};
 			$.ajax({
 				type : "post",
 				url : "login",
-				data : user,
+				data : {
+					"username" : u,
+					"password" : p
+				},
 				dataType : "json",
 				success : function(data) {
 					if (data.data)
@@ -55,18 +55,21 @@
 							<h1>Login</h1>
 							<p>
 								<label for="username" class="uname" data-icon="u">用户名 </label> <input
-									id="username" name="username" required="required" type="text" placeholder="Username" />
+									id="username" name="username" required="required" type="text"
+									placeholder="Username" />
 							</p>
 							<p>
 								<label for="password" class="youpasswd" data-icon="p">
 									密码 </label> <input id="password" name="password" required="required"
-									type="password" placeholder="Password"/>
+									type="password" placeholder="Password" />
 							</p>
+							<br>
 							<button type="button" class="btn btn-lg btn-primary btn-block"
 								id="loginButton">登录</button>
 							<br>
-							<button type="button" class="btn btn-lg btn-success btn-block"
-								id="registerButton" onclick="window.location.href='register.html'">注册</button>
+							<button type="button" class="btn btn-lg btn-default btn-block"
+								id="registerButton"
+								onclick="window.location.href='register.html'">注册</button>
 						</form>
 					</div>
 				</div>

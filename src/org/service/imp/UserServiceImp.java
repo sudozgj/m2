@@ -64,6 +64,13 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
+	public Object logout(HttpSession session) {
+		session.removeAttribute("user");
+		
+		return JsonObject.getResult(1, "注销", true);
+	}
+	
+	@Override
 	public Object deleteUser(HttpSession session, long id) {
 		User user = (User) session.getAttribute("user"); // 因为有拦截器判断是否登录，所有不需要判断
 		if (user.getUsername().equals("admin")) {
@@ -116,4 +123,5 @@ public class UserServiceImp implements UserService {
 		list.add(user);
 		return JsonObject.getResult(1, "获取session", list);
 	}
+
 }

@@ -16,4 +16,10 @@ public class LogController {
 	public Object getLogList(Integer start, Integer limit) throws Exception {
 		return lService.getLogList(start, limit);
 	}
+	
+	@RequestMapping("/getLogTypeCount")
+	@ResponseBody
+	public Object getLogTypeCount()throws Exception{
+		return lService.getLogTypeCount();
+	}
 }
