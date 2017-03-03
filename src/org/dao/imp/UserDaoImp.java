@@ -64,6 +64,7 @@ public class UserDaoImp implements UserDao {
 			query.setParameter(1, password);
 			query.setMaxResults(1);
 			User user = (User) query.uniqueResult();
+			
 			return user;
 		} catch (Exception e) {
 			e.printStackTrace();
