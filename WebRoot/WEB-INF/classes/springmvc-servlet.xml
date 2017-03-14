@@ -24,6 +24,8 @@
 			<mvc:mapping path="/**" />
 			<mvc:exclude-mapping path="/fonts/**"/>
 			<mvc:exclude-mapping path="/css/**"/>
+			<mvc:exclude-mapping path="/getSession"/>
+			<mvc:exclude-mapping path="/logout"/>
 			<bean class="org.interceptor.LogInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

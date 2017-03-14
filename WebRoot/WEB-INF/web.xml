@@ -8,9 +8,9 @@
 		<welcome-file>home.html</welcome-file>
 	</welcome-file-list>
 
-	<listener>  
-		<listener-class>org.controller.CountController</listener-class>   
-	</listener> 
+	<listener>
+		<listener-class>org.controller.CountController</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>Admin</servlet-name>
@@ -21,23 +21,29 @@
 		<url-pattern>/admin</url-pattern>
 	</servlet-mapping>
 
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.html</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
+	</jsp-config>
 
-	<servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.jpg</url-pattern>  
-    </servlet-mapping>
-    <servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.png</url-pattern>  
-    </servlet-mapping>  
-    <servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.js</url-pattern>  
-    </servlet-mapping>  
-    <servlet-mapping>  
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.css</url-pattern>  
-    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.txt</url-pattern>

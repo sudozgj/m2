@@ -119,9 +119,10 @@ public class UserServiceImp implements UserService {
 	@Override
 	public Object getSession(HttpSession httpSession) {
 		User user = (User) httpSession.getAttribute("user");
-		List list = new ArrayList<>();
-		list.add(user);
-		return JsonObject.getResult(1, "获取session", list);
+		if(user!=null)
+			return JsonObject.getResult(1, "已登录", user);
+		else
+			return JsonObject.getResult(0, "未登录", false);
 	}
 
 }
